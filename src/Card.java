@@ -18,6 +18,7 @@
          byte cardSuit;                -- contain 1, 2, 3, or 4
          byte cardRank;                -- contain 2, 3, ... 13, 14
    ----------------------------------------------------------- */
+// https://www.cs.emory.edu/~cheung/Courses/170/Syllabus/10/Progs/Cards/1/Card.java
 
 public class Card
 {

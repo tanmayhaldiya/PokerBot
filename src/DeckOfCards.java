@@ -2,7 +2,7 @@
 /* -----------------------------------------------------
    Deck: a deck of cards
    ----------------------------------------------------- */
-
+// https://www.cs.emory.edu/~cheung/Courses/170/Syllabus/10/Progs/Cards/1/DeckOfCards.java
 public class DeckOfCards
 {
     public static final int NCARDS = 52;
