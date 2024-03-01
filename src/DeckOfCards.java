@@ -1,4 +1,4 @@
-
+import java.util.Random;
 /* -----------------------------------------------------
    Deck: a deck of cards
    ----------------------------------------------------- */
@@ -28,22 +28,31 @@ public class DeckOfCards
        --------------------------------- */
     public void shuffle(int n)
     {
-        int i, j, k;
+        Random r = new Random();
 
-        for ( k = 0; k < n; k++ )
-        {
-            i = (int) ( NCARDS * Math.random() );  // Pick 2 random cards
-            j = (int) ( NCARDS * Math.random() );  // in the deck
+        for (int i = deckOfCards.length -1; i > 0; i--) {
+            int j = r.nextInt(i + 1);
 
-	  /* ---------------------------------
-	     swap these randomly picked cards
-	     --------------------------------- */
-            Card tmp = deckOfCards[i];
+            Card temp = deckOfCards[i];
             deckOfCards[i] = deckOfCards[j];
-            deckOfCards[j] = tmp;
+            deckOfCards[j] = temp;
         }
+    //     int i, j, k;
 
-        currentCard = 0;   // Reset current card to deal
+    //     for ( k = 0; k < n; k++ )
+    //     {
+    //         i = (int) ( NCARDS * Math.random() );  // Pick 2 random cards
+    //         j = (int) ( NCARDS * Math.random() );  // in the deck
+
+	//   /* ---------------------------------
+	//      swap these randomly picked cards
+	//      --------------------------------- */
+    //         Card tmp = deckOfCards[i];
+    //         deckOfCards[i] = deckOfCards[j];
+    //         deckOfCards[j] = tmp;
+    //     }
+
+    //     currentCard = 0;   // Reset current card to deal
     }
 
     /* -------------------------------------------
