@@ -30,8 +30,8 @@ public class DeckOfCards
     {
         Random r = new Random();
 
-        for (int i = deckOfCards.length -1; i > 0; i--) {
-            int j = r.nextInt(i + 1);
+        for (int i = deckOfCards.length -1; i > currentCard; i--) {
+            int j = currentCard + r.nextInt(i + 1 - currentCard);
 
             Card temp = deckOfCards[i];
             deckOfCards[i] = deckOfCards[j];
@@ -55,6 +55,25 @@ public class DeckOfCards
     //     currentCard = 0;   // Reset current card to deal
     }
 
+    /*
+     * shuffling a deck of cards by removing the first 2 cards
+     * 
+     */
+    public void remove(Card[] cardsToRemove) {
+        int[] indicesToRemove = getIndices(cardsToRemove);
+        for (int i = 0; i < cardsToRemove.length; i++) {
+
+        }
+    }
+
+    public int getIndices(Card[] cards) {
+        for (int i = 0; i < cards.length; i++) {
+            
+        }
+        // return 
+    }
+
+
     /* -------------------------------------------
        deal(): deal deckOfCards[currentCard] out
        ------------------------------------------- */
@@ -62,7 +81,7 @@ public class DeckOfCards
     {
         if ( currentCard < NCARDS )
         {
-            return ( deckOfCards[ currentCard++ ] );
+            return ( deckOfCards[currentCard++] );
         }
         else
         {
