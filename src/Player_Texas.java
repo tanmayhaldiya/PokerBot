@@ -91,7 +91,7 @@ public class Player_Texas {
 
     public static void main (String[] args) {
         Deck d = new Deck();
-        d.shuffle(1000);
+        d.shuffle();
 
         Player_Texas p = new Player_Texas(d.deal(), d.deal());
 
