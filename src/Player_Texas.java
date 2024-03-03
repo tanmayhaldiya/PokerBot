@@ -1,11 +1,14 @@
-import java.util.*;
+import java.util.IllegalArgumentException;
+
 public class Player_Texas {
-    private Card[] holeCards = new Card[2];
-    private int bestHandValue = 0;
-    private Card[] bestHand = new Card[5];
+    private Card[] holeCards;
+    private int bestHandValue;
+    private Card[] bestHand;
 
     public Player_Texas () {
-        // im not gonna do anything here lmao
+        bestHand = new Card[5];
+        holeCards = new Card[2];
+        bestHandValue = 0;
     }
 
     public Player_Texas (Card card1, Card card2) {
@@ -13,21 +16,30 @@ public class Player_Texas {
         holeCards[1] = card2;
     }
 
-    // so that we can deal one card at a time
+    /**
+     * dealing one card at a time
+     * @param card - the card that is dealt
+     * @param cardNum - n where card is the nth card dealt
+     */
     private void setCards(Card card, int cardNum) {
         holeCards[cardNum] = card;
     }
 
-    // because "bestHand = hand" wasn't working...
+    /* because "bestHand = hand" wasn't working...
     private void updateHand(Card[] hand) {
         for (int i = 0; i < 5; i++) {
             bestHand[i] = hand[i];
         }
-    }
+    }*/
 
+    /**
+     *
+     * @param comm - the dealer's cards
+     * @throws java.lang.IllegalArgumentException - if comm's size is less than three or greater than 5
+     */
     public void community(ArrayList<Card> comm) {
         if (comm.size() < 3 || comm.size() > 5) {
-            System.out.println("Faulty community card count: " + comm.size());
+           throw new IllegalArgumentException("Faulty community card count: " + comm.size());
         }
 
         Card[] available = new Card[2 + comm.size()];
@@ -61,7 +73,7 @@ public class Player_Texas {
                     // System.out.println(Arrays.toString(hand));
                     bestHandValue = curVal;
                     // System.out.println(Arrays.toString(bestHand));
-                    updateHand(hand);
+                    bestHand = hand;
                     // System.out.println(Arrays.toString(bestHand));
                     // System.out.println(curVal);
                     // System.out.println();
