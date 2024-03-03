@@ -7,11 +7,14 @@ public class Player_Texas {
 
     public Player_Texas () {
         bestHand = new Card[5];
-        holeCards = new Card[2];
         bestHandValue = 0;
+        holeCards = new Card[2];
     }
 
     public Player_Texas (Card card1, Card card2) {
+        bestHand = new Card[5];
+        bestHandValue = 0;
+        holeCards = new Card[2];
         holeCards[0] = card1;
         holeCards[1] = card2;
     }
@@ -33,7 +36,7 @@ public class Player_Texas {
     }*/
 
     /**
-     *
+     * determines the best possible hand the current player has given the current community cards
      * @param comm - the dealer's cards
      * @throws java.lang.IllegalArgumentException - if comm's size is less than three or greater than 5
      */
@@ -108,7 +111,6 @@ public class Player_Texas {
         System.out.println(Arrays.toString(p.bestHand));
         System.out.println(p.bestHandValue);
         System.out.println(FiveCardPoker.WON_BY[p.bestHandValue / 1000000]);
-
 
     }
 }
