@@ -1,17 +1,25 @@
 import java.util.IllegalArgumentException;
 
-public class Player_Texas {
+public class TexasPlayer {
     private Card[] holeCards;
     private int bestHandValue;
     private Card[] bestHand;
 
-    public Player_Texas () {
+    /**
+     * default constructor - used pre-flop
+     */
+    public TexasPlayer() {
         bestHand = new Card[5];
         bestHandValue = 0;
         holeCards = new Card[2];
     }
 
-    public Player_Texas (Card card1, Card card2) {
+    /**
+     * post-flop constructor - not necessary?
+     * @param card1
+     * @param card2
+     */
+    public TexasPlayer(Card card1, Card card2) {
         bestHand = new Card[5];
         bestHandValue = 0;
         holeCards = new Card[2];
@@ -20,7 +28,7 @@ public class Player_Texas {
     }
 
     /**
-     * dealing one card at a time
+     * setting hole cards
      * @param card - the card that is dealt
      * @param cardNum - n where card is the nth card dealt
      */
@@ -28,19 +36,12 @@ public class Player_Texas {
         holeCards[cardNum] = card;
     }
 
-    /* because "bestHand = hand" wasn't working...
-    private void updateHand(Card[] hand) {
-        for (int i = 0; i < 5; i++) {
-            bestHand[i] = hand[i];
-        }
-    }*/
-
     /**
      * determines the best possible hand the current player has given the current community cards
      * @param comm - the dealer's cards
      * @throws java.lang.IllegalArgumentException - if comm's size is less than three or greater than 5
      */
-    public void community(ArrayList<Card> comm) {
+    public void updateHand(ArrayList<Card> comm) {
         if (comm.size() < 3 || comm.size() > 5) {
            throw new IllegalArgumentException("Faulty community card count: " + comm.size());
         }
@@ -93,7 +94,7 @@ public class Player_Texas {
         Deck d = new Deck();
         d.shuffle();
 
-        Player_Texas p = new Player_Texas(d.deal(), d.deal());
+        TexasPlayer p = new TexasPlayer(d.deal(), d.deal());
 
         System.out.println(p);
 
@@ -105,7 +106,7 @@ public class Player_Texas {
         }
         System.out.println('\n');
 
-        p.community(comm);
+        p.updateHand(comm);
 
         System.out.println("Winner!!");
         System.out.println(Arrays.toString(p.bestHand));

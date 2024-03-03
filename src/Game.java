@@ -4,7 +4,61 @@
  * As of now, folding/checking/calling/betting is not implemented.
  */
 public class Game {
-    public Game (int players) {
+    int numPlayers;
+    TexasPlayer[] players;
+    DeckOfCards deck;
+    List<Card> community;
 
+    public Game (int players) {
+        numPlayers = players;
+        players = new TexasPlayer[numPlayers];
+        deck = new DeckOfCards();
+        community = new ArrayList<>();
     }
+
+    public void preflop() {
+        // deal every player two cards
+        for (int i = 0; i < numPlayers; i++) {
+            TexasPlayer newPlayer = new TexasPlayer();
+            players[i] = newPlayer;
+            newPlayer.setCards(deck.deal(), 0);
+            newPlayer.setCards(deck.deal(), 1);
+        }
+    }
+
+    public void flop() {
+        // setting community cards
+        System.out.print("DEALT CARDS: ");
+        for (int i = 0; i < 3; i++) {
+            Card newCard = deck.deal();
+            community.add(newCard);
+            System.out.print(newCard.toString() + " ");
+        }
+        System.out.println();
+
+        updateAllHands();
+    }
+
+    public void turn() {
+        Card newCard = deck.deal();
+        community.add(newCard);
+        System.out.println("DEALT CARD: " + newCard.toString() + " ");
+        updateAllHands();
+    }
+
+    public void river() {
+        Card newCard = deck.deal();
+        community.add(newCard);
+        System.out.println("DEALT CARD: " + newCard.toString() + " ");
+        updateAllHands();
+    }
+
+    private void updateAllHands() {
+        for (int i = 0; i < numPlayers; i++) {
+            player[i].updateHand(community);
+        }
+    }
+
+
+
 }
