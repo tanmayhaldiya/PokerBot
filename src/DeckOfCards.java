@@ -62,15 +62,19 @@ public class DeckOfCards
     public void remove(Card[] cardsToRemove) {
         int[] indicesToRemove = getIndices(cardsToRemove);
         for (int i = 0; i < cardsToRemove.length; i++) {
-
+            Card temp = deckOfCards[i];
+            deckOfCards[i] = deckOfCards[indicesToRemove[i]];
+            deckOfCards[indicesToRemove[i]] = temp;
         }
     }
 
-    public int getIndices(Card[] cards) {
+    public int[] getIndices(Card[] cards) {
+        int[] indicesOfCards = new int[cards.length];
         for (int i = 0; i < cards.length; i++) {
-            
+            Card card = cards[i];
+            indicesOfCards[i] = 13 * (card.cardSuit -1) + card.cardRank - 1;
         }
-        // return 
+        return indicesOfCards;
     }
 
 
