@@ -33,7 +33,9 @@ public class FiveCardPoker
     public static final int ONE_PAIR       = 1000000;
     // + high*14^2 + high2*14^1 + low
 
-
+    public static final String[] WON_BY = new String[]{"High card", "One pair", "Two pair",
+                                                        "Three of a kind", "Straight",
+                                                        "Flush", "Four of a kind", "Straight flush"};
 
     /***********************************************************
      Methods used to determine a certain Poker hand
