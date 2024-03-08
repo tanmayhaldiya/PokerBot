@@ -1,4 +1,4 @@
-import java.util.IllegalArgumentException;
+import java.util.*;
 
 public class TexasPlayer {
     private Card[] holeCards;
@@ -32,7 +32,7 @@ public class TexasPlayer {
      * @param card - the card that is dealt
      * @param cardNum - n where card is the nth card dealt
      */
-    private void setCards(Card card, int cardNum) {
+    public void setCards(Card card, int cardNum) {
         holeCards[cardNum] = card;
     }
 
@@ -41,7 +41,7 @@ public class TexasPlayer {
      * @param comm - the dealer's cards
      * @throws java.lang.IllegalArgumentException - if comm's size is less than three or greater than 5
      */
-    public void updateHand(ArrayList<Card> comm) {
+    public void updateHand(List<Card> comm) {
         if (comm.size() < 3 || comm.size() > 5) {
            throw new IllegalArgumentException("Faulty community card count: " + comm.size());
         }
@@ -86,13 +86,17 @@ public class TexasPlayer {
         }
     }
 
+    public int getBestHandValue() {
+        return bestHandValue;
+    }
+
     public String toString() {
         return holeCards[0].toString() + " " + holeCards[1].toString();
     }
 
     public static void main (String[] args) {
         Deck d = new Deck();
-        d.shuffle();
+        d.shuffle(0);
 
         TexasPlayer p = new TexasPlayer(d.deal(), d.deal());
 

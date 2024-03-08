@@ -3,14 +3,14 @@ import java.util.Random;
    Deck: a deck of cards
    ----------------------------------------------------- */
 // https://www.cs.emory.edu/~cheung/Courses/170/Syllabus/10/Progs/Cards/1/DeckOfCards.java
-public class DeckOfCards
+public class Deck
 {
     public static final int NCARDS = 52;
 
     private Card[] deckOfCards;         // Contains all 52 cards
     private int currentCard;            // deal THIS card in deck
 
-    public DeckOfCards( )
+    public Deck( )
     {
         deckOfCards = new Card[ NCARDS ];
 
@@ -72,7 +72,7 @@ public class DeckOfCards
         int[] indicesOfCards = new int[cards.length];
         for (int i = 0; i < cards.length; i++) {
             Card card = cards[i];
-            indicesOfCards[i] = 13 * (card.cardSuit -1) + card.cardRank - 1;
+            indicesOfCards[i] = 13 * (card.suit() -1) + card.rank() - 1;
         }
         return indicesOfCards;
     }

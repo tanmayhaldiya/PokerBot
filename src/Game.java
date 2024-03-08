@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Simulates a game with a specific number of players.
  *
@@ -6,16 +8,19 @@
 public class Game {
     int numPlayers;
     TexasPlayer[] players;
-    DeckOfCards deck;
+    Deck deck;
     List<Card> community;
 
-    public Game (int players) {
-        numPlayers = players;
+    public Game (int n) {
+        numPlayers = n;
         players = new TexasPlayer[numPlayers];
-        deck = new DeckOfCards();
+        deck = new Deck();
         community = new ArrayList<>();
     }
 
+    /**
+     * ability to determine hand value for just 4 cards ?
+     */
     public void preflop() {
         // deal every player two cards
         for (int i = 0; i < numPlayers; i++) {
@@ -24,6 +29,7 @@ public class Game {
             newPlayer.setCards(deck.deal(), 0);
             newPlayer.setCards(deck.deal(), 1);
         }
+        // updateAllHands();
     }
 
     public void flop() {
@@ -55,10 +61,28 @@ public class Game {
 
     private void updateAllHands() {
         for (int i = 0; i < numPlayers; i++) {
-            player[i].updateHand(community);
+            players[i].updateHand(community);
         }
     }
 
+    /**
+     * Prints all players hands
+     * @return a string
+     */
+    public String toString() {
+        String str = "";
+        int maxPlayer = 0;
+        int maxValue = Integer.MIN_VALUE;
+        for (int i = 0; i < numPlayers; i++) {
+            str += "Player #" + i + ": " + players[i].getBestHandValue() + "\n";
+            if (players[i].getBestHandValue() > maxValue) {
+                maxPlayer = i;
+                maxValue = players[i].getBestHandValue();
+            }
 
+        }
+
+        return str;
+    }
 
 }
