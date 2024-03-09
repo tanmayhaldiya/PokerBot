@@ -12,7 +12,7 @@ public class Deck
 
     public Deck( )
     {
-        deckOfCards = new Card[ NCARDS ];
+        deckOfCards = new Card[NCARDS];
 
         int i = 0;
 
@@ -30,33 +30,17 @@ public class Deck
     {
         Random r = new Random();
 
-        for (int i = deckOfCards.length -1; i > currentCard; i--) {
+        for (int i = deckOfCards.length - 1; i > currentCard; i--) {
             int j = currentCard + r.nextInt(i + 1 - currentCard);
 
             Card temp = deckOfCards[i];
             deckOfCards[i] = deckOfCards[j];
             deckOfCards[j] = temp;
         }
-    //     int i, j, k;
-
-    //     for ( k = 0; k < n; k++ )
-    //     {
-    //         i = (int) ( NCARDS * Math.random() );  // Pick 2 random cards
-    //         j = (int) ( NCARDS * Math.random() );  // in the deck
-
-	//   /* ---------------------------------
-	//      swap these randomly picked cards
-	//      --------------------------------- */
-    //         Card tmp = deckOfCards[i];
-    //         deckOfCards[i] = deckOfCards[j];
-    //         deckOfCards[j] = tmp;
-    //     }
-
-    //     currentCard = 0;   // Reset current card to deal
     }
 
     /*
-     * shuffling a deck of cards by removing the first 2 cards
+     * shuffling a deck of cards by removing the first n cards
      * 
      */
     public void remove(Card[] cardsToRemove) {
@@ -65,6 +49,7 @@ public class Deck
             Card temp = deckOfCards[i];
             deckOfCards[i] = deckOfCards[indicesToRemove[i]];
             deckOfCards[indicesToRemove[i]] = temp;
+            currentCard++;
         }
     }
 
@@ -72,7 +57,7 @@ public class Deck
         int[] indicesOfCards = new int[cards.length];
         for (int i = 0; i < cards.length; i++) {
             Card card = cards[i];
-            indicesOfCards[i] = 13 * (card.suit() -1) + card.rank() - 1;
+            indicesOfCards[i] = 13 * (card.suit() - 1) + card.rank() - 1;
         }
         return indicesOfCards;
     }
