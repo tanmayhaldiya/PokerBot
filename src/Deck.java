@@ -57,7 +57,7 @@ public class Deck
         int[] indicesOfCards = new int[cards.length];
         for (int i = 0; i < cards.length; i++) {
             Card card = cards[i];
-            indicesOfCards[i] = 13 * (card.suit() - 1) + card.rank() - 1;
+            indicesOfCards[i] = 13 * (card.suit() - 1) + card.rank() - 2; 
         }
         return indicesOfCards;
     }
