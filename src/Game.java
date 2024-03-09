@@ -61,6 +61,16 @@ public class Game {
         updateAllHands();
     }
 
+    public void setCommunity(List<Card> c) {
+        community = c;
+    }
+
+    public void setHands(List<Card[]> hands) {
+        for (int i = 0; i < numPlayers; i++) {
+            players[i].setCards(hands.get(i));
+        }
+    }
+
     private void updateAllHands() {
         for (int i = 0; i < numPlayers; i++) {
             players[i].updateHand(community);
