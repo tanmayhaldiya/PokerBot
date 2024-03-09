@@ -29,6 +29,12 @@ public class TexasPlayer {
 
     /**
      * setting hole cards
+     * @param cards - an array of two hole cards
+     */
+    public void setCards(Card[] cards) { holeCards = cards; }
+
+    /**
+     * setting hole cards
      * @param card - the card that is dealt
      * @param cardNum - n where card is the nth card dealt
      */
