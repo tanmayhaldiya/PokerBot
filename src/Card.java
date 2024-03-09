@@ -50,15 +50,15 @@ public class Card
         char suit = cardStr.charAt(1);
         if (rank >= 50 && rank <= 57) {
             cardRank = (byte) (rank - 48);
-        } else if (rank == 'T') {
+        } else if (rank == 'T' || rank == 't') {
             cardRank = 10;
-        } else if (rank == 'J') {
+        } else if (rank == 'J' || rank == 'j') {
             cardRank = 11;
-        } else if (rank == 'Q') {
+        } else if (rank == 'Q' || rank == 'q') {
             cardRank = 12;
-        } else if (rank == 'K') {
+        } else if (rank == 'K' || rank == 'k') {
             cardRank = 13;
-        } else if (rank == 'A') {
+        } else if (rank == 'A' || rank == 'a') {
             cardRank = 14;
         } else {
             System.out.println("Invalid rank input");
