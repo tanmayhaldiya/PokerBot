@@ -31,7 +31,6 @@ public class Game {
             newPlayer.setCards(deck.deal(), 0);
             newPlayer.setCards(deck.deal(), 1);
         }
-        // updateAllHands();
     }
 
     public void flop() {
@@ -61,9 +60,9 @@ public class Game {
         updateAllHands();
     }
 
-    public void setCommunity(List<Card> c) {
-        community = c;
-    }
+    public void setCommunity(List<Card> c) { community = c; }
+
+    public void addCommunityCard(Card c) { community.add(c); }
 
     public void setHands(List<Card[]> hands) {
         for (int i = 0; i < numPlayers; i++) {
