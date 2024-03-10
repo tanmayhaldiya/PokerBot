@@ -5,8 +5,8 @@ public class DeckTest {
         remove[0] = new Card("As");
         remove[1] = new Card("2c");
         remove[2] = new Card("Td");
-
+        System.out.println("Before:\n" + d);
         d.remove(remove);
-        System.out.println(d);
+        System.out.println("After:\n" + d);
     }
 }

@@ -36,11 +36,7 @@ public class Card
 
     public Card(int suit, int rank )
     {
-        if ( rank == 1 )
-            cardRank = 14;     // Give Ace the rank 14
-        else
-            cardRank = (byte) rank;
-
+        cardRank = (byte) rank;
         cardSuit = (byte) suit;
     }
 

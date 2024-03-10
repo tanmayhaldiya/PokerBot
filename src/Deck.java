@@ -16,8 +16,8 @@ public class Deck
 
         int i = 0;
 
-        for ( int suit = Card.DIAMOND; suit <= Card.SPADE; suit++ )
-            for ( int rank = 1; rank <= 13; rank++ )
+        for (int suit = Card.DIAMOND; suit <= Card.SPADE; suit++)
+            for (int rank = 2; rank <= 14; rank++)
                 deckOfCards[i++] = new Card(suit, rank);
 
         currentCard = 0;
@@ -26,13 +26,12 @@ public class Deck
     /* ---------------------------------
        shuffle(n): shuffle the deck
        --------------------------------- */
-    public void shuffle(int n)
+    public void shuffle()
     {
         Random r = new Random();
 
         for (int i = deckOfCards.length - 1; i > currentCard; i--) {
             int j = currentCard + r.nextInt(i + 1 - currentCard);
-
             Card temp = deckOfCards[i];
             deckOfCards[i] = deckOfCards[j];
             deckOfCards[j] = temp;
