@@ -26,7 +26,7 @@ public class Deck
     /* ---------------------------------
        shuffle(n): shuffle the deck
        --------------------------------- */
-    public void shuffle(int n)
+    public void shuffle()
     {
         Random r = new Random();
 

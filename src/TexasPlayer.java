@@ -102,7 +102,7 @@ public class TexasPlayer {
 
     public static void main (String[] args) {
         Deck d = new Deck();
-        d.shuffle(0);
+        d.shuffle();
 
         TexasPlayer p = new TexasPlayer(d.deal(), d.deal());
 

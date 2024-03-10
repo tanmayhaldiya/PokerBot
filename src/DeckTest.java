@@ -8,5 +8,8 @@ public class DeckTest {
 
         d.remove(remove);
         System.out.println(d);
+
+        d.shuffle();
+        System.out.println(d);
     }
 }
