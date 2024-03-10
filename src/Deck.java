@@ -23,9 +23,6 @@ public class Deck
         currentCard = 0;
     }
 
-    /* ---------------------------------
-       shuffle(n): shuffle the deck
-       --------------------------------- */
     public void shuffle(int n)
     {
         Random r = new Random();
