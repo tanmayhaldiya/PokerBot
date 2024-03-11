@@ -52,6 +52,9 @@ public class TexasPlayer {
            throw new IllegalArgumentException("Faulty community card count: " + comm.size());
         }
 
+        bestHand = new Card[5];
+        bestHandValue = 0;
+
         Card[] available = new Card[2 + comm.size()];
 
         available[0] = holeCards[0];

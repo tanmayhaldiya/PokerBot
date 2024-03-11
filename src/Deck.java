@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Arrays;
 /* -----------------------------------------------------
    Deck: a deck of cards
    ----------------------------------------------------- */
@@ -23,7 +24,7 @@ public class Deck
         currentCard = 0;
     }
 
-    public void shuffle(int n)
+    public void shuffle()
     {
         Random r = new Random();
 
@@ -54,7 +55,11 @@ public class Deck
         int[] indicesOfCards = new int[cards.length];
         for (int i = 0; i < cards.length; i++) {
             Card card = cards[i];
-            indicesOfCards[i] = 13 * (card.suit() - 1) + card.rank() - 2; 
+            if (card.rank() == 14) {
+                indicesOfCards[i] = 13 * (card.suit() - 1);
+            } else {
+                indicesOfCards[i] = 13 * (card.suit() - 1) + card.rank() - 1;
+            }
         }
         return indicesOfCards;
     }
@@ -76,6 +81,10 @@ public class Deck
         }
     }
 
+    public void setCurrentCard(int newCurr) {
+        currentCard = newCurr;
+    }
+
     public String toString()
     {
         String s = "";
@@ -90,5 +99,10 @@ public class Deck
             s += "\n";
         }
         return ( s );
+    }
+
+    public static void main (String[] args) {
+        Deck d = new Deck();
+        System.out.println(Arrays.toString(d.getIndices(d.deckOfCards)));
     }
 }

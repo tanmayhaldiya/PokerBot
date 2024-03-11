@@ -1,14 +1,20 @@
+import java.util.Arrays;
+
 public class PokerTest {
     public static void main (String[] args) {
         deckTest();
     }
 
-    public void deckTest() {
+    public static void deckTest() {
         Deck d = new Deck();
+        System.out.println(d);
+
         Card[] remove = new Card[3];
         remove[0] = new Card("As");
-        remove[1] = new Card("2c");
+        remove[1] = new Card("2s");
         remove[2] = new Card("Td");
+
+        System.out.println(Arrays.toString(remove));
 
         d.remove(remove);
         System.out.println(d);
