@@ -64,8 +64,8 @@ public class SimulateGame {
         System.out.println(Arrays.toString(myHand));
 
         Card[] oppHand = new Card[2];
-        oppHand[0] = new Card("Kc");
-        oppHand[1] = new Card("Kd");
+        oppHand[0] = new Card("8h");
+        oppHand[1] = new Card("9h");
         System.out.println(Arrays.toString(oppHand));
 
         Card[] emptyComm = new Card[0];
@@ -74,7 +74,7 @@ public class SimulateGame {
         exComm[1] = new Card("7c");
         exComm[2] = new Card("3s");
 
-        int[] res = simulateGame(myHand, oppHand, emptyComm);
+        int[] res = simulateGame(myHand, oppHand, exComm);
         double[] rates = new double[3];
 
         rates[0] = ((double) res[0]) / 1_000_000;
